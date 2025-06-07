@@ -50,3 +50,9 @@ def preprocess_california_housing(test_size=0.2, random_state=42):
     X_test_scaled = pd.DataFrame(X_test_scaled, columns=X_test.columns, index=X_test.index)
 
     return X_train_scaled, X_test_scaled, y_train, y_test
+
+if __name__ == "__main__":
+    X_train, X_test, y_train, y_test = preprocess_california_housing()
+    processed = pd.concat([X_train, y_train], axis=1)
+    processed.to_csv("Preprocessing/CaliforniaHousing_preprocessing.csv", index=False)
+    print("Preprocessing/CaliforniaHousing_preprocessing.csv berhasil dibuat.")
