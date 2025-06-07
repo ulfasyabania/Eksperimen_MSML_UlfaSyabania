@@ -27,10 +27,10 @@ with mlflow.start_run():
     y_pred = rf.predict(X_test)
 
     # Metrics
-    mse = mean_squared_error(y_test, y_pred)
-    rmse = mean_squared_error(y_test, y_pred, squared=False)
-    mae = mean_absolute_error(y_test, y_pred)
-    r2 = r2_score(y_test, y_pred)
+    mse = float(mean_squared_error(y_test, y_pred))
+    rmse = float(mean_squared_error(y_test, y_pred, squared=False))
+    mae = float(mean_absolute_error(y_test, y_pred))
+    r2 = float(r2_score(y_test, y_pred))
 
     # Manual logging
     mlflow.log_param("n_estimators", 100)
